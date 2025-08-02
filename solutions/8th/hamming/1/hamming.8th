@@ -1,0 +1,16 @@
+: distance \ s1 s2 -- n
+  s:len swap >r >r s:len r>
+  n:= if
+    r> 0
+    >r >r
+    (
+      swap
+      r> swap s:@
+      swap >r
+      n:= not if r> r> 1 + >r >r then
+    ) s:each
+    r> drop r>
+  else
+    drop null
+  then
+;
